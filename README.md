@@ -1,9 +1,9 @@
 in lib folder:
 
-- Asset, Network ve Circle Avatar resim türleri,
-- FadeinImage ve IntrinsicHeight Kullanımı,
-- FlutterLogo ve PlaceHolder Widget özellikleri
-- Temel Buto türleri
+- Asset, Network ve Circle Avatar ,
+- FadeinImage and IntrinsicHeight ,
+- FlutterLogo and PlaceHolder Widget 
+- Basic Buttons,
 - Stateful Widget
 - Stateless Widget
-- BuildContext theme ve stateful wdiget
+- BuildContext theme and stateful wdiget
