@@ -1,5 +1,7 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'ui/navigasyon_islemleri.dart';
 import 'ui/custom_scroll_ve_slivers.dart';
 import 'ui/gridview_dersi.dart';
 import 'ui/etkin_liste_ornek.dart';
@@ -19,14 +21,44 @@ void main() {
 
   runApp(MaterialApp(
     title: "Heka Liste dersleri",
+   // initialRoute: "/CPage/FPage/GPage",
+    routes: {
+      '/'      : (context)=> NavigasyonIslemleri(),
+      '/CPage' : (context)=> CSayfasi(),
+      '/CPage/FPage': (context)=> FSayfasi(),
+      '/CPage/FPage/GPage' : (context)=> GSayfasi(),
+      '/DPage' : (context)=> DSayfasi(),
+      '/GPage' : (context)=> GSayfasi(),
+      '/FPage' : (context)=> FSayfasi(),
+      '/listeSayfasi': (context)=> ListeSinif(),
+    },
+
+    onGenerateRoute: (RouteSettings settings){
+      List<String> pathElemanlari = settings.name.split("/");
+      //  /detay/$index için;
+      if(pathElemanlari[1]=='detay'){
+        return MaterialPageRoute(builder: (context)=> ListeDetay(int.parse(pathElemanlari[2])));
+      }
+      //mesela başka bir durum daha olsaydı;
+      //  /urun/detay/id ve /urun/ozellik/id için;
+//      if(pathElemanlari[1]=='urun'){
+//        if(pathElemanlari[2]=='detay'){
+//          return MaterialPageRoute(builder: (context)=> ListeDetay(int.parse(pathElemanlari[3])));
+//        }
+//        else if(pathElemanlari[2]=='ozellik'){
+//          return MaterialPageRoute(builder: (context)=> ListeDetay(int.parse(pathElemanlari[3])));
+//        }
+//      }
+      return null;
+    },
+
+    onUnknownRoute: (RouteSettings settings)=>MaterialPageRoute(builder: (context)=>DSayfasi()), //eğer olurda rotada hata olursa bilinmeyen olursa vesair DSayfasina yönlendirdik. Eğer bu da tanımlı olmasaydı yada bulamasaydı kök rrota giderdi.
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       primarySwatch: Colors.red,
     ),
-    home: Scaffold(
-      //appBar: AppBar(title: Text("Liste ders"),),
-      body: CollapsableToolbarOrnek(),
-    ),
+    //home: NavigasyonIslemleri(),//yukarıda kök dizini tanımlamışsak buna gerek kalmaz, yoksa hata verir
+
   ));
 
 }
