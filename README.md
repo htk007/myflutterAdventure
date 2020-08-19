@@ -29,3 +29,11 @@ in lib folder:
 - SliverList and create dynamic element
 - SliverFixedExtendList
 - SliverGrid
+- **Lesson 5**
+- Navigator.push 
+- Navigator.pop
+- Send data between activities
+- WillPopScope
+- PushReplacement and route usage
+- initialRoute and onUnknownRoute
+- onGenerateRoute
